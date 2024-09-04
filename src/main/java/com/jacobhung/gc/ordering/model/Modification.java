@@ -11,7 +11,7 @@ public class Modification {
 
     @ManyToOne
     @JoinColumn(name = "itemID")
-    private Items item;
+    private Item item;
 
     @ManyToOne
     @JoinColumn(name = "modiTypeID")
