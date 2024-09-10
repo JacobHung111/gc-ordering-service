@@ -12,7 +12,5 @@ public class Drinks {
     private String drinkNameEN;
     private String drinkNameZH;
     private Double price;
-    private Double priceinset;
-
     // Getters and Setters
 }

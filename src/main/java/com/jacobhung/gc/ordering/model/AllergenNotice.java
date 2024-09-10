@@ -7,13 +7,15 @@ import jakarta.persistence.*;
 public class AllergenNotice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer noticeID;
+    private Integer allergenNoticeId;
 
-    @Lob
-    private String noticeTextEN;
+    @ManyToOne
+    @JoinColumn(name = "itemID")
+    private Item item;
 
-    @Lob
-    private String noticeTextZH;
+    @ManyToOne
+    @JoinColumn(name = "allergenTypeID")
+    private AllergenType allergenType;
 
     // Getters and Setters
 }
