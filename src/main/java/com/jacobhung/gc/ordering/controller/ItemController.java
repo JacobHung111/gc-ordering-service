@@ -14,17 +14,17 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping
-    public List<Item> getAllUsers() {
+    public List<Item> getAllItems() {
         return itemService.getAllItems();
     }
 
     @GetMapping("/{id}")
-    public Item getUserById(@PathVariable Integer id) {
+    public Item getItemById(@PathVariable Integer id) {
         return itemService.getItemById(id);
     }
 
     @PostMapping
-    public Item createUser(@RequestBody Item item) {
+    public Item createItem(@RequestBody Item item) {
         return itemService.saveItem(item);
     }
 
