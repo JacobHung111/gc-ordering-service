@@ -3,18 +3,19 @@ package com.jacobhung.gc.ordering.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "AllergenNotice")
+@Table(name = "allergennotice")
 public class AllergenNotice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer allergenNoticeId;
+    @Column(name = "allergennoticeid")
+    private int allergenNoticeId;
 
     @ManyToOne
-    @JoinColumn(name = "itemID")
+    @JoinColumn(name = "itemid")
     private Item item;
 
     @ManyToOne
-    @JoinColumn(name = "allergenTypeID")
+    @JoinColumn(name = "allergentypeid")
     private AllergenType allergenType;
 
     // Getters and Setters

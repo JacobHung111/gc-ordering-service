@@ -3,14 +3,18 @@ package com.jacobhung.gc.ordering.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Categories")
+@Table(name = "categories")
 public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer categoryID;
+    @Column(name = "categoryid")
+    private int categoryId;
 
-    private String categoryNameEN;
-    private String categoryNameZH;
+    @Column(name = "categoryname_en")
+    private String categoryNameEn;
+
+    @Column(name = "categoryname_zh")
+    private String categoryNameZh;
 
     // Getters and Setters
 }

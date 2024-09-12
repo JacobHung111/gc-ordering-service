@@ -3,33 +3,34 @@ package com.jacobhung.gc.ordering.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Items")
+@Table(name = "items")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer itemID;
+    @Column(name = "itemid")
+    private int itemId;
 
     @ManyToOne
-    @JoinColumn(name = "categoryID")
+    @JoinColumn(name = "categoryid")
     private Categories category;
 
-    private String itemNameEN;
-    private String itemNameZH;
+    @Column(name = "itemname_en")
+    private String itemNameEn;
 
-    @Lob
-    private String descriptionEN;
+    @Column(name = "itemname_zh")
+    private String itemNameZh;
 
-    @Lob
-    private String descriptionZH;
-
+    @Column(name = "price")
     private Double price;
-    private String imageURL;
-    private Character isIncludedDrink;
-    private Character isNoodle;
 
-    @ManyToOne
-    @JoinColumn(name = "allergen")
-    private AllergenNotice allergen;
+    @Column(name = "imageurl")
+    private String imageUrl;
+
+    @Column(name = "isincludeddrink")
+    private char isIncludedDrink;
+
+    @Column(name = "isnoodle")
+    private char isNoodle;
 
     // Getters and Setters
 }
