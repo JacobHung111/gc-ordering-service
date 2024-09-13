@@ -7,30 +7,85 @@ import jakarta.persistence.*;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "itemid")
     private int itemId;
 
     @ManyToOne
-    @JoinColumn(name = "categoryid")
+    @JoinColumn(name = "categoryId")
     private Categories category;
 
-    @Column(name = "itemname_en")
     private String itemNameEn;
 
-    @Column(name = "itemname_zh")
     private String itemNameZh;
 
-    @Column(name = "price")
     private Double price;
 
-    @Column(name = "imageurl")
     private String imageUrl;
 
-    @Column(name = "isincludeddrink")
-    private char isIncludedDrink;
+    private boolean isIncludedDrink;
 
-    @Column(name = "isnoodle")
-    private char isNoodle;
+    private boolean isNoodle;
 
-    // Getters and Setters
+    public Categories getCategory() {
+        return category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public boolean getIsIncludedDrink() {
+        return isIncludedDrink;
+    }
+
+    public boolean getIsNoodle() {
+        return isNoodle;
+    }
+
+    public int getItemId() {
+        return itemId;
+    }
+
+    public String getItemNameEn() {
+        return itemNameEn;
+    }
+
+    public String getItemNameZh() {
+        return itemNameZh;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setIsIncludedDrink(boolean isIncludedDrink) {
+        this.isIncludedDrink = isIncludedDrink;
+    }
+
+    public void setIsNoodle(boolean isNoodle) {
+        this.isNoodle = isNoodle;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+
+    public void setItemNameEn(String itemNameEn) {
+        this.itemNameEn = itemNameEn;
+    }
+
+    public void setItemNameZh(String itemNameZh) {
+        this.itemNameZh = itemNameZh;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

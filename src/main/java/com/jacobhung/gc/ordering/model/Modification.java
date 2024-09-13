@@ -7,16 +7,37 @@ import jakarta.persistence.*;
 public class Modification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "modificationid")
     private int modificationId;
 
     @ManyToOne
-    @JoinColumn(name = "itemid")
+    @JoinColumn(name = "itemId")
     private Item item;
 
     @ManyToOne
-    @JoinColumn(name = "moditypeid")
+    @JoinColumn(name = "modiTypeId")
     private ModificationType modificationType;
 
-    // Getters and Setters
+    public int getModificationId() {
+        return modificationId;
+    }
+
+    public void setModificationId(int modificationId) {
+        this.modificationId = modificationId;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public ModificationType getModificationType() {
+        return modificationType;
+    }
+
+    public void setModificationType(ModificationType modificationType) {
+        this.modificationType = modificationType;
+    }
 }

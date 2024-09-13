@@ -7,17 +7,43 @@ import jakarta.persistence.*;
 public class Drinks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "drinkid")
     private int drinkId;
 
-    @Column(name = "drinkname_en")
     private String drinkNameEn;
 
-    @Column(name = "drinkname_zh")
     private String drinkNameZh;
 
-    @Column(name = "price")
     private Double price;
 
-    // Getters and Setters
+    public int getDrinkId() {
+        return drinkId;
+    }
+
+    public void setDrinkId(int drinkId) {
+        this.drinkId = drinkId;
+    }
+
+    public String getDrinkNameEn() {
+        return drinkNameEn;
+    }
+
+    public void setDrinkNameEn(String drinkNameEn) {
+        this.drinkNameEn = drinkNameEn;
+    }
+
+    public String getDrinkNameZh() {
+        return drinkNameZh;
+    }
+
+    public void setDrinkNameZh(String drinkNameZh) {
+        this.drinkNameZh = drinkNameZh;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

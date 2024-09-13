@@ -7,16 +7,37 @@ import jakarta.persistence.*;
 public class AllergenNotice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "allergennoticeid")
     private int allergenNoticeId;
 
     @ManyToOne
-    @JoinColumn(name = "itemid")
+    @JoinColumn(name = "itemId")
     private Item item;
 
     @ManyToOne
-    @JoinColumn(name = "allergentypeid")
+    @JoinColumn(name = "allergenTypeId")
     private AllergenType allergenType;
 
-    // Getters and Setters
+    public int getAllergenNoticeId() {
+        return allergenNoticeId;
+    }
+
+    public AllergenType getAllergenType() {
+        return allergenType;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setAllergenNoticeId(int allergenNoticeId) {
+        this.allergenNoticeId = allergenNoticeId;
+    }
+
+    public void setAllergenType(AllergenType allergenType) {
+        this.allergenType = allergenType;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
 }

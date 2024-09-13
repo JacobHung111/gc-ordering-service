@@ -7,16 +7,35 @@ import jakarta.persistence.*;
 public class AllergenType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "allergentypeid")
     private int allergenTypeId;
 
     @Lob
-    @Column(name = "noticetext_en")
     private String noticeTextEn;
 
     @Lob
-    @Column(name = "noticetext_zh")
     private String noticeTextZh;
 
-    // Getters and Setters
+    public int getAllergenTypeId() {
+        return allergenTypeId;
+    }
+
+    public void setAllergenTypeId(int allergenTypeId) {
+        this.allergenTypeId = allergenTypeId;
+    }
+
+    public String getNoticeTextEn() {
+        return noticeTextEn;
+    }
+
+    public void setNoticeTextEn(String noticeTextEn) {
+        this.noticeTextEn = noticeTextEn;
+    }
+
+    public String getNoticeTextZh() {
+        return noticeTextZh;
+    }
+
+    public void setNoticeTextZh(String noticeTextZh) {
+        this.noticeTextZh = noticeTextZh;
+    }
 }

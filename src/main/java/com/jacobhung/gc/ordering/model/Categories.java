@@ -7,14 +7,34 @@ import jakarta.persistence.*;
 public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "categoryid")
     private int categoryId;
 
-    @Column(name = "categoryname_en")
     private String categoryNameEn;
 
-    @Column(name = "categoryname_zh")
     private String categoryNameZh;
 
-    // Getters and Setters
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryNameEn() {
+        return categoryNameEn;
+    }
+
+    public void setCategoryNameEn(String categoryNameEn) {
+        this.categoryNameEn = categoryNameEn;
+    }
+
+    public String getCategoryNameZh() {
+        return categoryNameZh;
+    }
+
+    public void setCategoryNameZh(String categoryNameZh) {
+        this.categoryNameZh = categoryNameZh;
+    }
+
 }
