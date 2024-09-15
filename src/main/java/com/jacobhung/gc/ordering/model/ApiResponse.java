@@ -1,12 +1,16 @@
 package com.jacobhung.gc.ordering.model;
 
-public class ErrorResponse {
+public class ApiResponse<T> {
+    private boolean success;
     private int statusCode;
     private String message;
+    private T data;
 
-    public ErrorResponse(int statusCode, String message) {
+    public ApiResponse(boolean success, int statusCode, String message, T data) {
+        this.success = success;
         this.statusCode = statusCode;
         this.message = message;
+        this.data = data;
     }
 
     public int getStatusCode() {
@@ -25,6 +29,20 @@ public class ErrorResponse {
         this.message = message;
     }
 
-    // Getters and setters
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 
 }
