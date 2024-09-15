@@ -23,7 +23,11 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public void deleteItem(Integer id) {
-        itemRepository.deleteById(id);
+    public boolean deleteItem(Integer id) {
+        if (itemRepository.existsById(id)) {
+            itemRepository.deleteById(id);
+            return true;
+        } else
+            return false;
     }
 }
