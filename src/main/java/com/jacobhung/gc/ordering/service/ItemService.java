@@ -19,8 +19,8 @@ public class ItemService {
         return itemRepository.findById(id).orElse(null);
     }
 
-    public Item saveItem(Item item) {
-        return itemRepository.save(item);
+    public List<Item> saveItems(List<Item> items) {
+        return itemRepository.saveAll(items);
     }
 
     public boolean deleteItem(Integer id) {
@@ -29,5 +29,18 @@ public class ItemService {
             return true;
         } else
             return false;
+    }
+
+    public Item updateItem(Integer id, Item updatedItem) {
+        return itemRepository.findById(id).map(item -> {
+            item.setCategory(updatedItem.getCategory());
+            item.setItemNameEn(updatedItem.getItemNameEn());
+            item.setItemNameZh(updatedItem.getItemNameZh());
+            item.setPrice(updatedItem.getPrice());
+            item.setImageUrl(updatedItem.getImageUrl());
+            item.setIsIncludedDrink(updatedItem.getIsIncludedDrink());
+            item.setIsNoodle(updatedItem.getIsNoodle());
+            return itemRepository.save(item);
+        }).orElse(null);
     }
 }

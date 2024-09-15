@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/items")
@@ -31,8 +34,8 @@ public class ItemController {
     }
 
     @PostMapping
-    public Item createItem(@RequestBody Item item) {
-        return itemService.saveItem(item);
+    public List<Item> createItem(@RequestBody List<Item> items) {
+        return itemService.saveItems(items);
     }
 
     @DeleteMapping("/{id}")
@@ -42,5 +45,16 @@ public class ItemController {
         boolean fail = !itemService.deleteItem(id);
         if (fail)
             throw new WebErrorException(HttpStatus.NOT_FOUND, "Item not found with id: " + id);
+    }
+
+    @PutMapping("/{id}")
+    public Item updateItem(@PathVariable(required = false) Integer id, @RequestBody Item item) {
+        if (id == null)
+            throw new WebErrorException(HttpStatus.BAD_REQUEST, "ID must be provided");
+        Item i = itemService.updateItem(id, item);
+        if (i == null) {
+            throw new WebErrorException(HttpStatus.NOT_FOUND, "Item not found with id: " + id);
+        }
+        return i;
     }
 }
