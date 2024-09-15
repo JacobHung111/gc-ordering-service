@@ -1,4 +1,4 @@
-package com.jacobhung.gc.ordering.interceptor;
+package com.jacobhung.gc.ordering.middleware;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
